@@ -1,24 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, View, FlatList, Button } from 'react-native';
 import List from './List';
 import Form from './Form';
+
 export default function App() {
   const [listOfItems, setListOfItems] = useState([
     {
       key: '1',
       text:
-        "Привет Мир!! Идейные соображения высшего порядка, а также консультация с широким активом требуют определения и уточнения системы обучения кадров, соответствует насущным потребностям. "
+        "Купить продукты"
     },
     {
       key: '2',
       text:
-        "Всех с 1 сентября!! Задача организации, в особенности же постоянное информационно-пропагандистское обеспечение нашей деятельности требуют определения и уточнения новых предложений"
+        "Поздравить Алису с днем рождения "
     },
     {
       key: '3',
       text:
-        "Товарищи! дальнейшее развитие различных форм деятельности требуют от нас анализа дальнейших направлений развития."
+        "Убраться дома "
+    },
+    {
+      key: '4',
+      text:
+        "Сделать домашнее задание"
+    },
+    {
+      key: '5',
+      text:
+        "Убраться"
     }
   ])
   
@@ -39,10 +49,14 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>Заметки</Text>
+      <Text style={styles.text}>ToDo List</Text>
+
+
       <Form addHandler={addHandler} />
-      <FlatList data={listOfItems} renderItem={({item})=> (
-        <List el={item} deleteHandler={deleteHandler} />
+      <FlatList  data={listOfItems} renderItem={({item})=> (
+        <View style={styles.con}>
+          <List el={item} deleteHandler={deleteHandler} />
+        </View>
       )} />
     </View>
   );
@@ -51,8 +65,20 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#ade69a',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  con:{
+    marginTop: 15,
+    backgroundColor: "white",
+    width: 400,
+    borderColor: "green",
+    borderWidth: 1
+  },
+  text:{
+    marginTop: 40,
+    fontSize: 20,
+    color: "green"
+  }
 });

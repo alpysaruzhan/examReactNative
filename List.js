@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 
 export default function List({el, deleteHandler}) {
     return(
         <View style={styles.container}>
-            <TouchableOpacity onPress={() => deleteHandler(el.key)}>
+            <TouchableOpacity style={styles.button} onPress={() => deleteHandler(el.key)}>
             <Text style={styles.text}>{el.text}</Text>
             </TouchableOpacity>
         </View>
